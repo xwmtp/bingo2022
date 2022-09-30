@@ -7,8 +7,8 @@ import { mockAllUsers } from "../domain/mocks/MockData";
 
 const getUser = async (): Promise<User | undefined> => {
   try {
-    const userDto = await getApi().getUser();
-    return mapToUser(userDto);
+    //const userDto = await getApi().getUser();
+    //return mapToUser(userDto);
   } catch {
     return undefined;
   }

@@ -13,10 +13,11 @@ import { useQuery } from "react-query";
 import { NewMatch as NewMatchDto } from "@xwmtp/bingo-tournament";
 import { websiteSettings } from "../Settings";
 import { mockAllMatches } from "../domain/mocks/MockData";
+import { matchesResponse } from "./responses/matchesResponse20220930";
 
 const getAllMatches = async (): Promise<Match[]> => {
   try {
-    const matchDtos = await getApi().getAllMatches();
+    const matchDtos = matchesResponse; //await getApi().getAllMatches();
     return matchDtos.map(mapToMatch);
   } catch (error) {
     if (websiteSettings.USE_MOCK_DATA) {

@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
           <LogoStyled />
           <Nav />
         </FlexDiv>
-        <LoginOrUser />
+        {/*<LoginOrUser />*/}
       </HeaderContent>
     </HeaderStyled>
   );
