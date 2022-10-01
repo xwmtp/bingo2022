@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Header } from "./components/header/Header";
 import { Content } from "./components/Content";
 import { AboutPage } from "./pages/AboutPage";
@@ -15,14 +15,20 @@ function App() {
     defaultOptions: {
       queries: {
         staleTime: 1000 * 60 * 5,
-        retry: 3,
-      },
-    },
+        retry: 3
+      }
+    }
   });
+
+  let url = window.location.href;
+  if (url.endsWith("bingo2022")) {
+    url = url + "/";
+    window.location.replace(url);
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename={"/"}>
+      <HashRouter basename={"/"}>
         <ModalProvider>
           <Header />
           <Content>
@@ -46,7 +52,7 @@ function App() {
             </Routes>
           </Content>
         </ModalProvider>
-      </BrowserRouter>
+      </HashRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
