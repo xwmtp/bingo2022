@@ -1,5 +1,8 @@
 # Bingo Tournament Website
 
+Static version of the website that was used for the 2022 OoT Bingo Tournament. The website is deployed
+on https://xwmtp.github.io/bingo2022.
+
 ## Install
 
 On [Github.com](https://github.com), go to `Settings` -> `Developer Settings` -> `Personal access tokens`.
