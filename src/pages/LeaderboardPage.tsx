@@ -6,9 +6,10 @@ import { useAllEntrants } from "../api/entrantsApi";
 import { useMatchResults } from "../api/matchesApi";
 import { NothingToDisplay } from "../components/general/NothingToDisplay";
 import { Bracket } from "../components/pages/leaderboard/Bracket";
-import { parseToBracketRounds } from "../domain/BracketSetup";
+import { getWinner, parseToBracketRounds } from "../domain/BracketSetup";
 import { bracketSetup, leaderboardSettings, websiteSettings } from "../Settings";
 import { mockBracketSetup } from "../domain/mocks/MockData";
+import { Winner } from "../components/pages/leaderboard/Winner";
 
 export const LeaderboardPage: React.FC = () => {
   const { data: allEntrants, isLoading: isLoadingEntrants } = useAllEntrants();
@@ -40,8 +41,13 @@ export const LeaderboardPage: React.FC = () => {
   );
   const bracketRounds = parseToBracketRounds(bracketSetupData, allEntrants, matchResults);
 
+  const lastRound = bracketRounds[bracketRounds.length - 1];
+  const lastMatchUp = lastRound?.matchUps[lastRound.matchUps.length - 1];
+  const winner = !!lastMatchUp ? getWinner(lastMatchUp) : undefined;
+
   return (
     <>
+      {winner && <Winner winner={winner} />}
       {bracketRounds.length > 0 && <Bracket bracketRounds={bracketRounds} />}
       <Leaderboard allEntrants={allEntrants} allResults={relevantMatchResults} />
     </>
