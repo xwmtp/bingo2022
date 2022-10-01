@@ -1,0 +1,9 @@
+{
+  "short_name": "Bingo 2022",
+  "name": "OoT Bingo Tournament 2022",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#3a3f3f"
+}
