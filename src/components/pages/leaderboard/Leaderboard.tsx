@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { Block } from "../../Block";
 import { Colors } from "../../../GlobalStyle";
 import { FlexDiv } from "../../divs/FlexDiv";
-import { useUser } from "../../../api/userApi";
 import { useRacetimeLeaderboard } from "../../../api/racetimeLeaderboardApi";
 import { sortLeaderboardEntries, toLeaderboardEntries } from "../../../domain/Leaderboard";
 import { NothingToDisplay } from "../../general/NothingToDisplay";
@@ -20,8 +19,6 @@ interface Props {
 }
 
 export const Leaderboard: React.FC<Props> = ({ allEntrants, allResults }) => {
-  const { data: user } = useUser();
-
   const { data: racetimeLeaderboard } = useRacetimeLeaderboard();
 
   const title = "Phase 1 - Leaderboard";
@@ -66,7 +63,7 @@ export const Leaderboard: React.FC<Props> = ({ allEntrants, allResults }) => {
         return (
           <LeaderboardEntryBlock
             key={index}
-            $displayAsLoggedInUser={!!user && entry.user.id === user.id}
+            $displayAsLoggedInUser={index <= 12 || (!!entry.median && entry.median <= 4606)}
           >
             <RankAndUser>
               <Rank>{index + 1}</Rank>
