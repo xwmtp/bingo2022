@@ -1,7 +1,8 @@
 {
-  "name": "bingo-tournament-website",
+  "name": "bingo2022",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://xwmtp.github.io/bingo2022",
   "scripts": {
     "start": "env-cmd -f .env react-scripts start",
     "build": "env-cmd -f .env.prod react-scripts build",
