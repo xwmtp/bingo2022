@@ -15,7 +15,7 @@ interface Props {
 
 export const Bracket: React.FC<Props> = ({ bracketRounds }) => {
   return (
-    <Container title="Bracket">
+    <Container title="Phase 2 - Bracket">
       <FlexDiv>
         {bracketRounds.map((round) => (
           <BracketRoundColumn round={round} key={round.name} />
@@ -85,7 +85,7 @@ const MatchUpBlock = styled(FlexDiv)<{
   align-items: flex-start;
   margin: 0.7rem 0;
   background-color: ${({ $displayAsLoggedInUser }) =>
-    $displayAsLoggedInUser ? Colors.brightGrey : Colors.lightGrey};
+          $displayAsLoggedInUser ? Colors.brightGrey : Colors.lightGrey};
   border-radius: 0.6rem;
   padding: 0.4rem 0.6rem;
   width: 100%;

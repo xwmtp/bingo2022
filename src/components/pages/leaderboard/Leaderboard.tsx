@@ -24,7 +24,7 @@ export const Leaderboard: React.FC<Props> = ({ allEntrants, allResults }) => {
 
   const { data: racetimeLeaderboard } = useRacetimeLeaderboard();
 
-  const title = "Leaderboard";
+  const title = "Phase 1 - Leaderboard";
 
   const sortedEntries = useMemo(() => {
     if (allEntrants && allResults) {
@@ -106,7 +106,7 @@ const LeaderboardEntryBlock = styled(Block)<{
 }>`
   justify-content: space-between;
   background-color: ${({ $displayAsLoggedInUser }) =>
-    $displayAsLoggedInUser ? Colors.brightGrey : Colors.lightGrey};
+          $displayAsLoggedInUser ? Colors.brightGrey : Colors.lightGrey};
   font-size: 1.1rem;
   margin-top: 0.5rem;
   padding-top: 0.35rem;
